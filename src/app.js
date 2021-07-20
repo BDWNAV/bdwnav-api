@@ -22,5 +22,5 @@ app.use((req, res, next) => {
 app.use("/", require("./routes"));
 
 app.listen(port, () => {
-  console.log("Started! On port: " + PORT);
+  console.log("Started! On port: " + port);
 });
