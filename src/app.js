@@ -1,9 +1,13 @@
+require("dotenv").config();
+
+const PORT = process.env.PORT || 4000;
+
 const express = require("express");
 const app = express();
-const port = 4035;
 
 app.use(express.json());
 
+// CORS middleware
 app.use((req, res, next) => {
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Methods", "*");
@@ -11,6 +15,7 @@ app.use((req, res, next) => {
   next();
 });
 
+// Logging requests
 app.use((req, res, next) => {
   let ip =
     req.headers["x-forwarded-for"] ||
@@ -21,6 +26,6 @@ app.use((req, res, next) => {
 
 app.use("/", require("./routes"));
 
-app.listen(port, () => {
-  console.log("Started! On port: " + port);
+app.listen(PORT, () => {
+  console.log("Started! On port: " + PORT);
 });
