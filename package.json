@@ -1,0 +1,30 @@
+{
+  "name": "bdwnav-api",
+  "version": "1.0.0",
+  "description": "A api for me.",
+  "main": "src/app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon src/app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BDWNAV/bdwnav-api.git"
+  },
+  "keywords": [
+    "api",
+    "custom-api"
+  ],
+  "author": "BDWNAV",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BDWNAV/bdwnav-api/issues"
+  },
+  "homepage": "https://github.com/BDWNAV/bdwnav-api#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.12"
+  },
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
