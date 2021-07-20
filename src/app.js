@@ -1,14 +1,29 @@
+require('dotenv').config();
+
+const PORT = process.env.PORT || 4000;
+
 const express = require("express");
 const app = express();
 
 app.use(express.json());
 
-const mainRoute = require("./routes/indexRoute");
-const friendRoute = require("./routes/friendRoute");
+// CORS middleware
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Methods', '*');
+  res.header('Access-Control-Allow-Headers', '*');
+  next();
+});
 
-app.use('/', mainRoute);
-app.use('/friends', friendRoute);
+// Logging requests
+app.use((req, res, next) => {
+  let ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress.split(`:`).pop();
+  console.log(`[${req.method}] request on ${req.originalUrl} from ${ip}`);
+  next();
+});
 
-app.listen(4035, () => {
-  console.log("On a port.");
+app.use('/', require('./routes'));
+
+app.listen(PORT, () => {
+  console.log("Started! On port: " + PORT);
 });
