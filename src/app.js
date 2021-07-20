@@ -9,6 +9,6 @@ const friendRoute = require("./routes/friendRoute");
 app.use('/', mainRoute);
 app.use('/friends', friendRoute);
 
-app.listen(3000, () => {
+app.listen(process.env.PORT, () => {
   console.log("On a port.");
 });
