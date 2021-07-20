@@ -15,6 +15,13 @@ app.use((req, res, next) => {
   next();
 });
 
+// Logging requests
+app.use((req, res, next) => {
+  let ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress.split(`:`).pop();
+  console.log(`[${req.method}] request on ${req.originalUrl} from ${ip}`);
+  next();
+});
+
 app.use('/', require('./routes'));
 
 app.listen(PORT, () => {
