@@ -1,14 +1,14 @@
+require('dotenv').config();
+
+const PORT = process.env.PORT || 4000;
+
 const express = require("express");
 const app = express();
 
 app.use(express.json());
 
-const mainRoute = require("./routes/indexRoute");
-const friendRoute = require("./routes/friendRoute");
+app.use('/', require('./routes'));
 
-app.use('/', mainRoute);
-app.use('/friends', friendRoute);
-
-app.listen(4035, () => {
-  console.log("On a port.");
+app.listen(PORT, () => {
+  console.log("Started! On port: " + PORT);
 });
