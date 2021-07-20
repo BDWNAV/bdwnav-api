@@ -1,19 +1,17 @@
 const express = require("express");
 const router = express.Router();
 
-router.get('/', (req, res) => {
+router.get("/", (req, res) => {
   return res.status(404).json({
-    "friends": [
-      "deathhound"
-    ]
+    friends: ["deathhound"],
   });
 });
 
-router.get('/deathhound', (req, res) => {
+router.get("/deathhound", (req, res) => {
   return res.status(200).json({
-    "name": "deathhound",
-    "discord": "DeathHound#8339",
-    "how": "discord"
+    name: "deathhound",
+    discord: "DeathHound#8339",
+    how: "discord",
   });
 });
 
