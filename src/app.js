@@ -1,8 +1,12 @@
-const PORT = 4035;
 const express = require("express");
 const app = express();
+const cors = require("cors");
+const PORT = 4035;
 
 app.use(express.json());
+app.use(cors({
+  origin: "*"
+}));
 
 // CORS middleware
 app.use((req, res, next) => {
