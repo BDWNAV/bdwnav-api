@@ -9,7 +9,7 @@ router.get('/', (req, res) => {
     success: true,
     name: "nav",
     discord: "Nav#8153",
-    discord-server: "not ready"
+    discord_server: "not ready"
   });
 });
 
